@@ -15,6 +15,7 @@
 
 import * as os from 'os'
 import * as path from 'path'
+import { fileURLToPath } from 'url';
 
 // ----------------------------------------------------------------------------
 
@@ -303,6 +304,25 @@ await test('XpmLiquid filters multi', async (t) => {
   t.equal(compound.length, 4, 'has two entries')
 
   t.end()
+})
+
+await test('XpmLiquid plugins', async (t) => {
+  const log = new Logger({ level: 'info' });
+
+  const rot13 = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'rot13.cjs');
+  const xpmLiquid = new XpmLiquid(log, [rot13]);
+  const _package = {
+    name: 'n',
+    version: '0.1.2'
+  };
+
+  const map = xpmLiquid.prepareMap(_package);
+
+  t.equal(
+    await xpmLiquid.performSubstitutions(
+      '{{ "echo" | rot13 }}', map),
+    'rpub',
+    'plugin ok')
 })
 
 // ----------------------------------------------------------------------------
