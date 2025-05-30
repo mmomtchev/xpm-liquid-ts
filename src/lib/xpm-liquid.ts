@@ -244,7 +244,7 @@ export class XpmLiquid {
   // --------------------------------------------------------------------------
   // Constructor.
 
-  constructor (log: Logger, plugins?: string[]) {
+  constructor (log: Logger, root?: string, plugins?: string[]) {
     this.log = log
 
     this.engine = new Liquid({
@@ -338,8 +338,7 @@ export class XpmLiquid {
 
     // User plugins
     for (const p of plugins ?? []) {
-      assert(p)
-      this.engine.plugin(loadPlugin(p))
+      this.engine.plugin(loadPlugin(root, p))
     }
   }
 

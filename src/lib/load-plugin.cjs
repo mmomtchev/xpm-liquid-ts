@@ -1,1 +1,3 @@
-module.exports = (plugin) => require(plugin)
+const { createRequire } = require("node:module");
+
+module.exports = (root, plugin) => createRequire(root)(plugin)

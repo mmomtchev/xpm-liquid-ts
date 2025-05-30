@@ -309,8 +309,8 @@ await test('XpmLiquid filters multi', async (t) => {
 await test('XpmLiquid plugins', async (t) => {
   const log = new Logger({ level: 'info' });
 
-  const rot13 = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'rot13.cjs');
-  const xpmLiquid = new XpmLiquid(log, [rot13]);
+  const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'package.json');
+  const xpmLiquid = new XpmLiquid(log, root, ['./rot13.cjs']);
   const _package = {
     name: 'n',
     version: '0.1.2'
