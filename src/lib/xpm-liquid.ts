@@ -35,6 +35,8 @@ import { Liquid } from 'liquidjs'
 // https://www.npmjs.com/package/@xpack/logger
 import { Logger } from '@xpack/logger'
 
+// eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+// @ts-ignore
 import loadPlugin from './load-plugin.cjs'
 
 // ----------------------------------------------------------------------------
