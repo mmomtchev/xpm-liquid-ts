@@ -4,11 +4,13 @@
   "extends": "../tsconfig-common.json",
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "../cjs"
+    "outDir": "../cjs",
+    "allowJs": true
   },
   "exclude": [],
   "include": [
     "*.ts",
-    "lib/*.ts"
+    "lib/*.ts",
+    "lib/load-plugin.cjs"
   ]
 }

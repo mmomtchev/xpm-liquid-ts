@@ -35,7 +35,6 @@ import { Liquid } from 'liquidjs'
 // https://www.npmjs.com/package/@xpack/logger
 import { Logger } from '@xpack/logger'
 
-// @ts-expect-error
 import loadPlugin from './load-plugin.cjs'
 
 // ----------------------------------------------------------------------------
