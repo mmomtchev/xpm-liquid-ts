@@ -30,7 +30,7 @@ jobs:
       matrix:
         node-version: [18, 20]
         # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
-        os: [ubuntu-22.04, windows-2022, macos-12]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - name: Checkout
