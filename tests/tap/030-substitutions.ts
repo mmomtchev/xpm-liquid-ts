@@ -15,6 +15,7 @@
 
 import * as os from 'os'
 import * as path from 'path'
+import * as process from 'process'
 import { fileURLToPath } from 'url';
 
 // ----------------------------------------------------------------------------
@@ -326,6 +327,9 @@ await test('XpmLiquid plugins (CJS)', async (t) => {
 })
 
 await test('XpmLiquid plugins (ES6)', async (t) => {
+  if (+process.versions.node.split('.')[0]! < 20)
+    return;
+
   const log = new Logger({ level: 'info' });
 
   const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'package.json');
