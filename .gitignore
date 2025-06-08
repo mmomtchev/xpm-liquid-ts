@@ -60,10 +60,14 @@ typings/
 # ---
 
 **/*.js
+**/*.cjs
 !/esm/index.js
 **/*.js.map
+**/*.cjs.map
 **/*.d.ts
 **/*.d.ts.map
+**/*.d.cts
+**/*.d.cts.map
 
 /docs/
 

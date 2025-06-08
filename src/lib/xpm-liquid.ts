@@ -35,6 +35,10 @@ import { Liquid } from 'liquidjs'
 // https://www.npmjs.com/package/@xpack/logger
 import { Logger } from '@xpack/logger'
 
+// eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+// @ts-ignore
+import loadPlugin from './load-plugin.cjs'
+
 // ----------------------------------------------------------------------------
 // Types.
 
@@ -240,7 +244,7 @@ export class XpmLiquid {
   // --------------------------------------------------------------------------
   // Constructor.
 
-  constructor (log: Logger) {
+  constructor (log: Logger, root?: string, plugins?: string[]) {
     this.log = log
 
     this.engine = new Liquid({
@@ -331,6 +335,12 @@ export class XpmLiquid {
     this.engine.registerFilter('to_filename',
       (p) => filterPath(p)
     )
+
+    // User plugins
+    for (const p of plugins ?? []) {
+      const mod = loadPlugin(root, p)
+      this.engine.plugin(mod.__esModule === true ? mod.default : mod)
+    }
   }
 
   // --------------------------------------------------------------------------
