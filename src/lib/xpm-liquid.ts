@@ -338,7 +338,8 @@ export class XpmLiquid {
 
     // User plugins
     for (const p of plugins ?? []) {
-      this.engine.plugin(loadPlugin(root, p))
+      const mod = loadPlugin(root, p)
+      this.engine.plugin(mod.__esModule === true ? mod.default : mod)
     }
   }
 

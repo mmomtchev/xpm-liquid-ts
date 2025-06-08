@@ -306,7 +306,7 @@ await test('XpmLiquid filters multi', async (t) => {
   t.end()
 })
 
-await test('XpmLiquid plugins', async (t) => {
+await test('XpmLiquid plugins (CJS)', async (t) => {
   const log = new Logger({ level: 'info' });
 
   const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'package.json');
@@ -323,6 +323,25 @@ await test('XpmLiquid plugins', async (t) => {
       '{{ "echo" | rot13 }}', map),
     'rpub',
     'plugin ok')
+})
+
+await test('XpmLiquid plugins (ES6)', async (t) => {
+  const log = new Logger({ level: 'info' });
+
+  const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', 'mock', 'package.json');
+  const xpmLiquid = new XpmLiquid(log, root, ['./rot13.mjs']);
+  const _package = {
+    name: 'n',
+    version: '0.1.2'
+  };
+
+  const map = xpmLiquid.prepareMap(_package);
+
+  t.equal(
+    await xpmLiquid.performSubstitutions(
+      '{{ "echo" | rot13 }}', map),
+    'rpub',
+    'plugin ok');
 })
 
 // ----------------------------------------------------------------------------
