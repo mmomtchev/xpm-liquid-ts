@@ -1,6 +1,8 @@
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/xpack/xpm-liquid-ts)](https://github.com/xpack/xpm-liquid-ts/blob/mater/package.json)
-[![license](https://img.shields.io/github/license/xpack/xpm-liquid-ts.svg)](https://github.com/xpack/xpm-liquid-ts/blob/xpack/LICENSE)
-[![npm (scoped)](https://img.shields.io/npm/v/@xpack/xpm-liquid.svg)](https://www.npmjs.com/package/@xpack/xpm-liquid/)
+*This fork adds features for the `hadron` build system*
+
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/mmomtchev/xpm-liquid-ts)](https://github.com/mmomtchev/xpm-liquid-ts/blob/mater/package.json)
+[![license](https://img.shields.io/github/license/mmomtchev/xpm-liquid-ts.svg)](https://github.com/mmomtchev/xpm-liquid-ts/blob/xpack/LICENSE)
+[![npm (scoped)](https://img.shields.io/npm/v/@xpack/xpm-liquid.svg)](https://www.npmjs.com/package/@mmomtchev/xpm-liquid/)
 
 # A Node.js CommonJS/ES6 module with the Liquid substitutions code used by xpm & relatives
 
